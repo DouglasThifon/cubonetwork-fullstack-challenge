@@ -4,7 +4,8 @@
   "description": "APIs para o fullstack-challenge do cubonetwork",
   "main": "./src/index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js --exec babel-node"
+    "start": "nodemon ./src/index.js --exec babel-node",
+    "test": "mocha"
   },
   "repository": "https://github.com/jeffersondev/cubonetwork-fullstack-challenge.git",
   "author": "jeffersondev",
@@ -12,7 +13,11 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.6.0",
-    "nodemon": "^1.11.0"
+    "babel-register": "^6.24.1",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "express": "^4.15.3"

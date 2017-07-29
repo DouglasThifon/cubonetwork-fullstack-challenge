@@ -4,7 +4,7 @@ const app = express();
 
 app.get('/', (req, res) => {
 
-    res.send('teste get');
+    res.json({ works: true });
 });
 
 export default app;
