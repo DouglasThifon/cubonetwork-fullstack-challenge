@@ -4,10 +4,10 @@
   "description": "APIs para o fullstack-challenge do cubonetwork",
   "main": "./src/index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js --exec babel-node",
+    "start": "NODE_ENV=development nodemon ./src/index.js --exec babel-node",
     "build": "babel src -d dist",
-    "serve": "node dist/index.js",
-    "test": "mocha",
+    "serve": "NODE_ENV=production node dist/index.js",
+    "test": "NODE_ENV=test mocha",
     "lint-fix": "eslint './src/**/*.js' './test/**/*.js' --fix"
   },
   "repository": "https://github.com/jeffersondev/cubonetwork-fullstack-challenge.git",
