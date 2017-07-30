@@ -72,4 +72,31 @@ describe('Routes: /employees', () => {
         });
     });
   });
+
+  describe('POST /employees', () => {
+    it('should validate before save a employee', (done) => {
+      request
+        .post('/employees')
+        .send()
+        .end((err, res) => {
+          if (err) {
+            done(err);
+          }
+          expect(res.status).to.be.eq(400);
+          // expect(res.body.errors).to.have.lengthOf(3);
+          expect(res.body.errors).to.contains('employee.name is required');
+          expect(res.body.errors).to.contains('employee.lastname is required');
+          expect(res.body.errors).to.contains('employee.participation is required');
+          Employee
+            .find({})
+            .then((employee) => {
+              expect(employee).to.be.empty;
+              done();
+            })
+            .catch((dberr) => {
+              done(dberr);
+            });
+        });
+    });
+  });
 });

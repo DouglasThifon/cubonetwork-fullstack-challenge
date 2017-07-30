@@ -27,6 +27,11 @@ app.route('/employees')
         res.sendStatus(201);
       })
       .catch((err) => {
+        if (err.name === 'ValidationError') {
+          const errors = Object.values(err.errors).map((fieldError => fieldError.message));
+          res.status(400).send({ errors });
+          return;
+        }
         console.error(err);
         res.sendStatus(500);
       });
