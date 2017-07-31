@@ -1,0 +1,23 @@
+main {
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  text-transform: uppercase;
+}
+
+.dados {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dados-item {
+  margin: 20px 10px;
+}
