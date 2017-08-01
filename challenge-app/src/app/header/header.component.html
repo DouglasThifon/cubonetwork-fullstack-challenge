@@ -1,19 +1,24 @@
 <header>
   <h2 class="titulo">Cadastre-se</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
   <form class="formulario">
     <input type="text"
            class="formulario-item"
            name="name"
+           [(ngModel)]="employee.name"
            placeholder="Nome">
     <input type="text"
            class="formulario-item"
            name="lastname"
+           [(ngModel)]="employee.lastname"
            placeholder="Sobrenome">
     <input type="number"
            class="formulario-item"
            name="participation"
+           [(ngModel)]="employee.participation"
            placeholder="Participação">
-    <button class="formulario-item formulario-button">Enviar</button>
+    <button class="formulario-item formulario-button"
+            (click)="enviarEmployee()">Enviar</button>
   </form>
 </header>

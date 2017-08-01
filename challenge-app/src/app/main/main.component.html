@@ -1,8 +1,13 @@
 <main>
   <h2 class="titulo">Dados</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  <section class="dados">
-    <data-table class="dados-item"></data-table>
-    <data-chart class="dados-item"></data-chart>
-  </section>
+  <p *ngIf="errorMessage;else dados">{{ errorMessage }}</p>
+  <ng-template #dados>
+    <section class="dados">
+      <data-table class="dados-item"
+                  [employees]="employees"></data-table>
+      <data-chart class="dados-item"
+                  [employees]="employees"></data-chart>
+    </section>
+  </ng-template>
 </main>

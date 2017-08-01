@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Employee } from './../model/employee';
+import { EmployeeService } from './../service/employee.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  employee: Employee = new Employee();
+  errorMessage: string = '';
 
-  ngOnInit() {
+  constructor(private employeeService: EmployeeService) { }
+
+  ngOnInit() { }
+
+  enviarEmployee() {
+    this.employeeService.saveEmployee(this.employee)
+      .subscribe(() => {
+        this.employee = new Employee();
+        this.errorMessage = '';
+      }, err => {
+        this.errorMessage = err.errors;
+      });
   }
 
 }

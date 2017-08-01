@@ -8,11 +8,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Jefferson</td>
-      <td>Martins</td>
-      <td class="center">50%</td>
+    <tr *ngFor="let employee of employees; let i = index">
+      <td class="center">{{i + 1}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.lastname}}</td>
+      <td class="center">{{employee.participation | number: '1.0-2'}}%</td>
     </tr>
   </tbody>
 </table>
